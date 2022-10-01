@@ -1,14 +1,11 @@
 package algonquin.cst2335.guo00118.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import algonquin.cst2335.guo00118.data.MainViewModel;
 import algonquin.cst2335.guo00118.databinding.ActivityMainBinding;
@@ -37,19 +34,33 @@ public class MainActivity extends AppCompatActivity {
             model.editString.postValue(variableBinding.edittext.getText().toString());
         });
 
+        // setting textview to edit text when button is clicked
         model.editString.observe(this, s -> {
- //           @Override
- //           public void onChanged(String s) {
-                variableBinding.textview.setText("Your edit text has: "+ s);
-            }
-        );
+            variableBinding.textview.setText("Your edit text has: "+ s);
+        });
 
 
-    /*    //load EditText
-        EditText myedit = variableBinding.edittext;
+        // setting compound buttons to checked
+        model.isSelected.observe(this, selected -> {
+            variableBinding.mycheckbox.setChecked(selected);
+            variableBinding.myradio.setChecked(selected);
+            variableBinding.myswitch.setChecked(selected);
 
-        //adding event listener to button with lambda function
-        String editString = myedit.getText().toString();
-        btn.setOnClickListener( vw -> mytext.setText("Your edit text has: " + editString) );
-    */}
+            //instantiating and setting toast message
+            Context context = getApplicationContext();
+            CharSequence text = "The value is now: " + selected;
+            int duration = Toast.LENGTH_SHORT;
+
+            //adding listener to compound buttons
+            variableBinding.mycheckbox.setOnCheckedChangeListener( (btn, isChecked) -> {
+                Toast.makeText(context, text, duration).show();
+            });
+            variableBinding.myradio.setOnCheckedChangeListener( (btn, isChecked) -> {
+                Toast.makeText(context, text, duration).show();
+            });
+            variableBinding.myswitch.setOnCheckedChangeListener( (btn, isChecked) -> {
+                Toast.makeText(context, text, duration).show();
+            });
+        });
+    }
 }

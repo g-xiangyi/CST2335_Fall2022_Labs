@@ -22,12 +22,42 @@
         android:id="@+id/mybutton"
        />
 
+    // Adding compound buttons
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compound_message"
+        android:id="@+id/mycheckbox"
+        />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compound_message"
+        android:id="@+id/myswitch"
+        />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compound_message"
+        android:id="@+id/myradio"
+        />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit_text"
         android:id="@+id/edittext"
         android:hint="@string/hint_text"
+        />
+    
+    //Adding ImageView widget
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_algonquin"
+        android:id=""
         />
 
 </LinearLayout>

@@ -3,6 +3,9 @@
     <string name="hello_message">Hello world!</string>
     <string name="button_message">I\'m a button</string>
 
+    //Compound Buttons message (mycheckbox, myswitch, myradio
+    <string name="compound_message">Do you drink coffee?</string>
+
     //EditText string
     <string name="edit_text">I\'m an EditText</string>
     //hint parameter
