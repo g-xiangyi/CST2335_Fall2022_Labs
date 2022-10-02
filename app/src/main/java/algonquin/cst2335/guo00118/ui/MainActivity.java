@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(variableBinding.getRoot()); //loads XML on screen
 
-        //load first Button
+        //setting Toaster message duration
+        int duration = Toast.LENGTH_SHORT;
+
+        //setting listener to textview edit text button
         variableBinding.mybutton.setOnClickListener(click -> {
             model.editString.postValue(variableBinding.edittext.getText().toString());
         });
@@ -51,18 +54,30 @@ public class MainActivity extends AppCompatActivity {
                 (btn, isChecked) -> {model.isSelected.postValue(isChecked);}
         );
 
-        // setting compound buttons to checked
+        /* observe function for compound buttons
+        - set compound buttons to checked
+        - toast message when button value is changed
+         */
         model.isSelected.observe(this, selected -> {
 
-            //checkbox button
             variableBinding.mycheckbox.setChecked(selected);
             variableBinding.myradio.setChecked(selected);
             variableBinding.myswitch.setChecked(selected);
 
             //instantiating and setting toast message
             CharSequence text = "The value is now: " + selected;
-            int duration = Toast.LENGTH_SHORT;
+            Toast.makeText(getApplicationContext(), text, duration).show();
+        });
 
+        //ImageButton function
+        variableBinding.imagebutton.setOnClickListener( v -> {
+
+            //Setting toaster message to display height and width of image
+            int height = variableBinding.imagebutton.getHeight();
+            int width = variableBinding.imagebutton.getWidth();
+            String text = "Width = " + width + " and height = " + height;
+
+            //setting toaster message to return height and width
             Toast.makeText(getApplicationContext(), text, duration).show();
         });
     }

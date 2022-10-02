@@ -51,11 +51,19 @@
         android:id="@+id/edittext"
         android:hint="@string/hint_text"
         />
-    
-    //Adding ImageView widget
-    <androidx.constraintlayout.utils.widget.ImageFilterView
+
+    //Adding ImageButton
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/logo_algonquin"
+        android:id="@+id/imagebutton"
+        />
+
+    //Adding Imageview
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@drawable/logo_algonquin"
         android:id="@+id/logo_algonquin"
         />
