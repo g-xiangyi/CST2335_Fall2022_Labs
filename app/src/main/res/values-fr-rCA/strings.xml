@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Amy\'s Android Labs</string>
-    <string name="hello_message">Bonjour tout le monde!</string>
-    <string name="button_message">Je suis un bouton</string>
-
+    <string name="app_name">Les devoirs Android d\'Amy</string>
+    <string name="button1_text">Bouton 1</string>
+    <string name="button2_text">Bouton 2</string>
+    <string name="button3_text">Bouton 3</string>
+    <string name="spin_message">Pivoter le drapeau</string>
 </resources>
